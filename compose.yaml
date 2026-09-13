@@ -1,0 +1,28 @@
+services:
+  changedetection:
+    image: ghcr.io/dgtlmoon/changedetection.io:latest
+    container_name: changedetection
+    hostname: changedetection
+    volumes:
+      - changedetection-data:/datastore
+    environment:
+      - TZ=Asia/Tokyo
+      - PLAYWRIGHT_DRIVER_URL=ws://playwright-chrome:3000/?stealth=1
+    ports:
+      - "127.0.0.1:5050:5000"
+    restart: unless-stopped
+    depends_on:
+      playwright-chrome:
+        condition: service_started
+
+  playwright-chrome:
+    image: ghcr.io/browserless/chromium
+    container_name: playwright-chrome
+    hostname: playwright-chrome
+    environment:
+      - TIMEOUT=600000
+      - CONCURRENT=10
+    restart: unless-stopped
+
+volumes:
+  changedetection-data:
