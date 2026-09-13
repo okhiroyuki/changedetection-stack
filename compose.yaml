@@ -1,6 +1,6 @@
 services:
   changedetection:
-    image: ghcr.io/dgtlmoon/changedetection.io:latest
+    image: ghcr.io/dgtlmoon/changedetection.io:latest@sha256:7bb6963b730df6a1070f7a08a607b0eb7a87fe65abfa4742d876ad33bb1267eb
     container_name: changedetection
     hostname: changedetection
     volumes:
@@ -16,7 +16,7 @@ services:
         condition: service_started
 
   playwright-chrome:
-    image: ghcr.io/browserless/chromium
+    image: ghcr.io/browserless/chromium@sha256:ae07025606e03c9b263620aaf4d09c52728f71a104ac7d471a68c23dec72c05f
     container_name: playwright-chrome
     hostname: playwright-chrome
     environment:
