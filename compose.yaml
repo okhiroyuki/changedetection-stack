@@ -16,7 +16,7 @@ services:
         condition: service_started
 
   playwright-chrome:
-    image: ghcr.io/browserless/chromium@sha256:c62cf104709509191ca78e2b3d9232528fabc93a6dbb37cbadd511886324b657
+    image: ghcr.io/browserless/chromium@sha256:bcad9a1c271ddb9d95f7de5981c68cb2fcc9fd1f07e8da07c4e5c9d1ef4fc099
     container_name: playwright-chrome
     hostname: playwright-chrome
     environment:
